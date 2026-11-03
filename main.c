@@ -8,7 +8,7 @@
 void menu() {
     printf("\n==== Programming Quotes ====\n");
     printf("1. Random quote\n");
-    printf("2. All quotes\n");
+    printf("2. Display quotes\n");
     printf("3. Exit\n");
 }
 
@@ -28,9 +28,16 @@ int main() {
             case 1:
                 print_quote(random_quote(quotes));
                 break;
-            case 2:
-                view_quotes(quotes);
-                break;
+        case 2: {
+            int count;
+
+            printf("How many quotes to display? ");
+            scanf("%d", &count);
+            getchar();
+
+            display_quotes(quotes, count);
+            break;
+        }
             case 3:
                 printf("Good bye...\n");
                 free(quotes);
